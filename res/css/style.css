@@ -1,0 +1,29 @@
+.flex {
+    display: flex;
+}
+
+.f-row {
+    flex-direction: row;
+}
+
+.f-column {
+    flex-direction: column;
+}
+
+.center-content {
+    justify-content: center;
+}
+
+.center-align {
+    align-items: center;
+}
+
+.max-width {
+    width: 100%;
+}
+
+.container {
+    width: 50%;
+    padding: 30px;
+    border: 1px solid;
+}

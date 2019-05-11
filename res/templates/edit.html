@@ -1,10 +1,19 @@
-<!DOCTYPE html>
+<!DOCTYPE HTML>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>$Title$</title>
+    <title>Editing {{.Title}}}}</title>
+
+    <link rel="stylesheet" href="../res/css/style.css">
 </head>
 <body>
-$END$
+<div class="flex center-align max-width f-column">
+    <h1>Editing {{.Title}}</h1>
+
+    <form action="/save/{{.Title}}" method="POST">
+        <div><input name="author" placeholder="Author"/></div>
+        <div><textarea name="body" placeholder="Article" rows="20" cols="80">{{printf "%s" .Body}}</textarea></div>
+        <div><input type="submit" value="Save"></div>
+    </form>
+</div>
 </body>
 </html>

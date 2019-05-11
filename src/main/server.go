@@ -1,23 +1,22 @@
 package main
 
 import (
-	"fmt"
+	"../handlers"
+	pghandler "../handlers/pages"
+	"github.com/jetflight/src/db"
 	"log"
 	"net/http"
 )
 
-func handler(w http.ResponseWriter, r *http.Request) {
-	_, _ = fmt.Fprintf(w, "Hi there, I love %s!", r.URL.Path[1:])
-}
-
-func viewHandler(w http.ResponseWriter, r *http.Request) {
-	title := r.URL.Path[len("/view/"):]
-	p, _ := LoadPage(title)
-	_, _ = fmt.Fprintf(w, "<h1>%s</h1><div>%s</div>", p.Title, p.Body)
-}
-
 func main() {
-	http.HandleFunc("/", handler)
-	http.HandleFunc("/view/", viewHandler)
+	http.HandleFunc("/", pghandler.Handler)
+	http.Handle("/res/", http.StripPrefix("/res/", http.FileServer(http.Dir("res"))))
+	http.HandleFunc("/view/", handlers.MakeHandler(pghandler.ViewHandler))
+	http.HandleFunc("/edit/", handlers.MakeHandler(pghandler.EditHandler))
+	http.HandleFunc("/save/", handlers.MakeHandler(pghandler.SaveHandler))
 	log.Fatal(http.ListenAndServe(":8081", nil))
+}
+
+func setupDb() {
+	db.CreateArticles()
 }

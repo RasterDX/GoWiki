@@ -7,7 +7,11 @@ import (
 
 type Page struct {
 	Title string
+	Authors []string
 	Body []byte
+	Date string
+	LastEdit string
+	Content content
 }
 
 func (p * Page) Save() error {

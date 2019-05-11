@@ -1,0 +1,36 @@
+{
+  "title": "Title",
+  "author": "Author",
+  "date": "2001-01-20T00:00:00.000Z",
+  "last-edit-at": "2001-03-01T00:00:00.000Z",
+  "content": {
+    "section": [
+    {
+      "title": "Section I",
+      "intro": "This is an intro text",
+      "subsection": {
+        "title": "Subsection I",
+        "body": "Subsection content goes here"
+      }
+    },
+    {
+      "title": "Section II",
+      "intro": "This is another intro text",
+      "subsection": {
+        "title": "Subsection II",
+        "body": "Subsection content goes here"
+      }
+    }
+    ]
+  },
+  "references": [
+  {
+    "source": "http://wikipedia.org",
+    "author": "the author"
+  },
+  {
+    "source": "http://wikipedia.org",
+    "author": "another author"
+  }
+  ]
+}
